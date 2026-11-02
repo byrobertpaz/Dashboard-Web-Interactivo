@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Financial Intelligence Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<style>
+:root{--bg:#050b1a;--ln:#1b2d57;--tx:#dbe7ff;--mu:#9db0d8;--cy:#22d3ee;--bl:#3b82f6;--tq:#2dd4bf;--rd:#f87171;--am:#fbbf24;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{overscroll-behavior-x:none;background:var(--bg)}
+body{margin:0;min-height:100%;background:radial-gradient(1000px 500px at 85% -10%,#12306a66,transparent),var(--bg);color:var(--tx);font:15px 'Space Grotesk',system-ui,sans-serif}
+.app{display:grid;grid-template-columns:200px 1fr;min-height:100vh}
+nav{border-right:1px solid var(--ln);padding:16px 10px;background:#060e22;position:sticky;top:0;height:100vh;align-self:start}
+.lg{display:flex;gap:8px;align-items:center;font-weight:700;letter-spacing:.2em;color:var(--cy);padding:4px 8px 16px}
+.nb{display:flex;gap:10px;align-items:center;width:100%;padding:11px 12px;margin:3px 0;border:1px solid transparent;border-radius:10px;background:none;color:var(--mu);font:inherit;cursor:pointer;text-align:left}
+.nb.on{color:#fff;background:linear-gradient(90deg,#1d4ed855,transparent);border-color:var(--ln);box-shadow:inset 3px 0 var(--cy)}
+.ei{flex:none;width:20px;text-align:center}
+main{padding:22px;min-width:0;max-width:1900px;margin:0 auto}
+header{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start;margin-bottom:12px}
+h1{margin:0;font-size:22px;letter-spacing:.14em;background:linear-gradient(90deg,#fff,var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent}
+header p{margin:4px 0 0;color:var(--mu)}#vt{color:var(--cy)}
+.tb,.fb,#pr{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
+.bt{background:#0c1a3d;border:1px solid var(--ln);color:var(--tx);border-radius:9px;padding:8px 12px;font:inherit;cursor:pointer;min-height:36px}
+.bt:hover,.bt.on{border-color:var(--cy);box-shadow:0 0 14px #22d3ee33}
+.fx{display:flex;flex-direction:column;gap:3px;color:var(--mu);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+select{background:#0c1a3d;color:var(--tx);border:1px solid var(--ln);border-radius:9px;padding:8px;font:inherit;min-height:36px}
+#chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 4px;align-items:center;color:var(--mu)}
+.chip{background:#22d3ee22;border:1px solid var(--cy);color:#fff;border-radius:99px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+#dt{color:var(--mu);font-size:14px;line-height:1.6;margin-bottom:8px}#dt b{color:var(--cy)}
+.kg{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin:12px 0 18px}
+.k{display:flex;flex-direction:column;gap:5px;text-align:left;font:inherit;color:var(--tx);background:linear-gradient(160deg,#10224b,#0a1330);border:1px solid var(--ln);border-radius:14px;padding:12px;cursor:pointer;box-shadow:0 8px 24px #0006,inset 0 1px #ffffff12;transition:.2s}
+.k:hover,.k.sel{border-color:var(--cy);box-shadow:0 0 0 1px var(--cy),0 0 26px #22d3ee33}
+.kt{color:var(--mu);font-size:13px}.kv{font-size:24px}.k small{color:var(--mu);font-size:13px}.kv,.ch{transition:opacity .3s}.ld .kv,.ld .ch{opacity:.55}
+.dl{font-weight:700}.up{color:var(--tq)}.dn{color:var(--rd)}
+#grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.p{background:linear-gradient(160deg,#0e1b3c,#0a1330);border:1px solid var(--ln);border-radius:14px;padding:16px;min-width:0;box-shadow:0 10px 30px #0006,inset 0 1px #ffffff0d;animation:up .45s both}
+.ph{display:flex;justify-content:space-between;align-items:center;gap:8px}.ph h3{margin:0;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.zb{display:flex;gap:4px}.zb .cx{display:none;width:auto;padding:0 10px;font:inherit;font-size:12px;border-color:var(--cy);background:#22d3ee22}.zb .cx.on{display:block}.zb button{width:32px;height:30px;background:#0c1a3d;border:1px solid var(--ln);color:var(--tx);border-radius:8px;cursor:pointer}
+.ch{height:300px;touch-action:pan-y;user-select:none}
+.ins{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:10px}
+.in{display:flex;gap:10px;background:#0c1a3d;border:1px solid var(--ln);border-radius:12px;padding:10px}.in .ei{color:var(--cy)}
+.in.al{border-color:#f8717166}.in.al .ei{color:var(--rd)}.in h4{margin:0 0 4px;font-size:13px}.in p{margin:0;color:var(--mu);line-height:1.5;font-size:14px}.in small{display:block;margin-top:6px;color:#7f96c6;font-size:12.5px}
+.md{position:fixed;inset:0;background:#02060fd9;display:none;place-items:center;z-index:50;padding:16px}.md.on{display:grid}
+.mb{width:min(780px,100%);max-height:92vh;overflow:auto;background:#0a1330;border:1px solid var(--cy);border-radius:16px;padding:16px;box-shadow:0 0 40px #22d3ee33}
+.mb h2{margin:0}.st{display:flex;gap:18px;flex-wrap:wrap;color:var(--mu);margin:8px 0}.st b{color:#fff}
+#boot{position:fixed;inset:0;background:var(--bg);display:grid;place-content:center;justify-items:center;gap:12px;z-index:100;color:var(--mu)}
+.sp{width:34px;height:34px;border:3px solid var(--ln);border-top-color:var(--cy);border-radius:50%;animation:rt .8s linear infinite}
+.ld::before{content:"";position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--bl),var(--cy));animation:lb .6s ease-out;z-index:99}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0c1a3d;border:1px solid var(--cy);padding:10px 16px;border-radius:10px;display:none;z-index:99}
+.foc nav{display:none}.foc .app{grid-template-columns:1fr}
+@keyframes up{from{opacity:0;transform:translateY(10px)}}@keyframes rt{to{transform:rotate(360deg)}}@keyframes lb{from{width:0}to{width:100%}}
+@media(max-width:1200px){.kg{grid-template-columns:repeat(3,1fr)}.p{grid-column:span 6!important}#pL,#pI,#pC{grid-column:1/-1!important}}
+@media(max-width:900px){.app{grid-template-columns:1fr}nav{position:static;height:auto;border:0;border-bottom:1px solid var(--ln);padding:8px}#nv{display:flex;overflow-x:auto;gap:4px}.nb{white-space:nowrap;width:auto}.lg{display:none}.p{grid-column:1/-1!important}.ch{height:260px}}
+@media(max-width:560px){.kg{grid-template-columns:repeat(2,1fr)}h1{font-size:17px}main{padding:12px}}
+</style></head><body>
+<div id="boot"><div class="sp"></div>Cargando datos…</div>
+<div class="app"><nav><div class="lg">FIC</div><div id="nv"></div></nav>
+<main><header><div><h1>FINANCIAL INTELLIGENCE CENTER</h1><p>Executive Financial Performance Dashboard · <span id="vt"></span></p></div>
+<div class="tb"><div id="pr"></div><button class="bt" id="bx">⤓ CSV</button><button class="bt" id="bf">⛶ Pantalla completa</button><button class="bt" id="br">Restablecer filtros</button><button class="bt" id="bd">Restablecer dashboard</button></div></header>
+<section id="fl" class="fb"></section><div id="chips"></div><div id="dt"></div>
+<section id="kg" class="kg"></section><section id="grid"></section></main></div>
+<div class="md" id="md"><div class="mb"><div class="ph"><h2 id="mt"></h2><button class="bt" id="mx">✕ Cerrar</button></div><div class="st" id="ms"></div><div id="mc" class="ch"></div></div></div><div id="toast"></div>
+<script>
+const bootMsg=t=>{const b=document.getElementById("boot");if(b)b.lastChild.textContent=t};
+window.onerror=m=>bootMsg("Error: "+m);
+window.__run=function(){
+/* ===== 1. DATOS CENTRALIZADOS (determinísticos: PRNG con semilla fija) ===== */
+const MN=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+const DP={Ventas:[1.3,.52,.14],Marketing:[.8,.40,.42],Operaciones:[1.1,.58,.20],'Tecnología':[.9,.38,.30],'Logística':[.7,.60,.30]}; // [escala, %costo, %gasto operativo]
+const CT={'Electrónica':1.25,'Hogar':.95,'Moda':.8,'Servicios':.6};
+const DPN=Object.keys(DP),CTN=Object.keys(CT);
+const coarse=!!(window.matchMedia&&matchMedia('(pointer:coarse)').matches),HINT=`<div style="margin-top:6px;color:#22d3ee;font-size:12px">${coarse?'Toca de nuevo para filtrar':'Clic para filtrar'}</div>`;let lt='';const tap=(key,fn)=>{if(coarse&&lt!=key){lt=key;return}lt='';fn()};
+let seed=20240;const R=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
+const DB=[]; // un registro por mes (i=0..23) × departamento × categoría
+for(let i=0;i<24;i++){const m=i%12,se=1+.18*Math.sin((m-8)*Math.PI/6)+(m==11?.15:0);
+ for(const d of DPN)for(const c of CTN){const b=42000*DP[d][0]*CT[c]*se,rev=Math.round(b*(1+i*.012)*(.93+R()*.14)),cost=Math.round(rev*DP[d][1]*(.95+R()*.1)),opex=Math.round(rev*DP[d][2]*(.95+R()*.1)),bRev=Math.round(b*(1+i*.01));
+ DB.push({i,y:2024+(i/12|0),m:m+1,q:Math.floor(m/3)+1,d,c,rev,cost,opex,bRev,bExp:Math.round(bRev*(DP[d][1]+DP[d][2])),cin:Math.round(rev*(.93+R()*.05)),cout:cost+opex})}}
+/* ===== 2. CÁLCULOS ===== */
+const agg=r=>{const o={rev:0,exp:0,bRev:0,bExp:0,cash:0};for(const x of r){o.rev+=x.rev;o.exp+=x.cost+x.opex;o.bRev+=x.bRev;o.bExp+=x.bExp;o.cash+=x.cin-x.cout}o.profit=o.rev-o.exp;o.margin=o.rev?o.profit/o.rev*100:0;return o};
+const F0={year:'2025',month:'',q:'',dept:[],cat:[]};let F={...F0},view='res',CUR,KI=[],kSel='';
+// om: dimensiones a ignorar ('d' depto, 'c' categoría, 't' mes/trimestre) → los gráficos de una dimensión muestran todas sus opciones y resaltan la elegida
+const sel=(f,om='')=>DB.filter(r=>(!f.year||r.y==f.year)&&(om.includes('d')||!f.dept.length||f.dept.includes(r.d))&&(om.includes('c')||!f.cat.length||f.cat.includes(r.c))&&(om.includes('t')||((!f.month||r.m==f.month)&&(!f.q||r.q==f.q))));
+const idxOf=f=>[...new Set(sel(f).map(r=>r.i))].sort((a,b)=>a-b);
+const shift=S=>{if(!S||!S.length)return null;const L=S.length,sh=S[L-1]-S[0]+1==L?L:12,P=S.map(i=>i-sh).filter(i=>i>=0);return P.length==L?P:null}; // período anterior equivalente
+const byIdx=(S,f)=>{const s=new Set(S);return DB.filter(r=>s.has(r.i)&&(!f.dept.length||f.dept.includes(r.d))&&(!f.cat.length||f.cat.includes(r.c)))};
+function series(f){const mp=new Map();for(const r of sel(f,'t')){if(!mp.has(r.i))mp.set(r.i,[]);mp.get(r.i).push(r)}
+ const M={idx:[],lab:[],rev:[],exp:[],profit:[],cash:[],bRev:[],margin:[],gr:[]};
+ [...mp.keys()].sort((a,b)=>a-b).forEach(i=>{const a=agg(mp.get(i)),p=M.rev[M.rev.length-1];M.idx.push(i);M.lab.push(MN[i%12]+' '+String(2024+(i/12|0)).slice(2));M.rev.push(a.rev);M.exp.push(a.exp);M.profit.push(a.profit);M.cash.push(a.cash);M.bRev.push(a.bRev);M.margin.push(+a.margin.toFixed(1));M.gr.push(p?+((a.rev/p-1)*100).toFixed(1):null)});return M}
+const $=v=>{const a=Math.abs(v);return(v<0?'-':'')+'$'+(a>=1e6?(a/1e6).toFixed(2)+'M':a>=1e3?(a/1e3).toFixed(0)+'K':a.toFixed(0))};
+const $$=v=>'$'+Math.round(v).toLocaleString('en-US');
+const pc=(a,b)=>b?(a/b-1)*100:null,sg=v=>v==null?'n/d':(v>=0?'+':'')+v.toFixed(1)+'%',$1=id=>document.getElementById(id);
+/* ===== 3. GRÁFICOS ===== */
+const TT={backgroundColor:'rgba(6,14,34,.96)',borderColor:'#2a4a8a',textStyle:{color:'#dbe7ff',fontSize:14},padding:12,confine:true,extraCssText:'box-shadow:0 8px 24px #000a;border-radius:10px'};
+const AX={axisLine:{lineStyle:{color:'#26396b'}},axisLabel:{color:'#a9bbe0',fontSize:12},splitLine:{lineStyle:{color:'#15244a'}}};
+const YA={type:'value',...AX,axisLabel:{color:'#a9bbe0',fontSize:12,formatter:$}},GR={left:56,right:16,top:38,bottom:64};
+const DZ=[{type:'inside',filterMode:'none',zoomOnMouseWheel:'shift',moveOnMouseMove:true,preventDefaultMouseMove:false},{type:'slider',height:18,bottom:6,borderColor:'#26396b',fillerColor:'#22d3ee33',handleSize:28,textStyle:{color:'#a9bbe0',fontSize:12}}];
+const LG={top:0,textStyle:{color:'#a9bbe0',fontSize:12}},K={Ingresos:'rev',Gastos:'exp',Utilidad:'profit','Flujo neto':'cash',Presupuesto:'bRev',Real:'rev'};
+const tsTip=M=>p=>{const i=p[0].dataIndex;return'<b>'+p[0].axisValue+'</b>'+p.map(s=>{const a=M[K[s.seriesName]],v=a[i],pv=a[i-1];return`<div>${s.marker}${s.seriesName}: <b>${$$(v)}</b> <span style="color:#8da2cf">(${sg(pv?pc(v,pv):null)} vs mes ant.)</span></div>`}).join('')+HINT};
+const ML=M=>({silent:true,symbol:'none',label:{show:false},lineStyle:{color:'#22d3ee',type:'dashed',width:2},data:M.idx.map((i,k)=>({i,k})).filter(o=>(F.month||F.q)&&(!F.month||o.i%12+1==F.month)&&(!F.q||Math.floor(o.i%12/3)+1==F.q)).map(o=>({xAxis:M.lab[o.k]}))});
+const ch={},GF=(a,b)=>new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:a},{offset:1,color:b}]);
+function line(n,k,M,c,x={}){return{name:n,type:'line',smooth:.3,data:M[k],symbolSize:9,lineStyle:{width:2.5,color:c},itemStyle:{color:c},...x}}
+function draw(M){
+ ch.L.setOption({tooltip:{...TT,trigger:'axis',axisPointer:{snap:true,lineStyle:{color:'#22d3ee'}},formatter:tsTip(M)},legend:LG,grid:GR,xAxis:{type:'category',data:M.lab,...AX},yAxis:YA,dataZoom:DZ,series:[line('Ingresos','rev',M,'#22d3ee',{markLine:ML(M)}),line('Gastos','exp',M,'#f87171'),line('Utilidad','profit',M,'#2dd4bf')]});
+ ch.A.setOption({tooltip:{...TT,trigger:'axis',axisPointer:{snap:true,lineStyle:{color:'#22d3ee'}},formatter:tsTip(M)},grid:GR,xAxis:{type:'category',data:M.lab,boundaryGap:false,...AX},yAxis:YA,dataZoom:DZ,series:[line('Flujo neto','cash',M,'#3b82f6',{areaStyle:{color:GF('#3b82f688','#3b82f604')},markLine:ML(M)})]});
+ ch.C.setOption({tooltip:{...TT,trigger:'axis',axisPointer:{snap:true,lineStyle:{color:'#22d3ee'}},formatter:tsTip(M)},legend:LG,grid:GR,xAxis:{type:'category',data:M.lab,...AX},yAxis:YA,dataZoom:DZ,series:[{name:'Presupuesto',type:'bar',data:M.bRev,itemStyle:{color:'#4a6399',borderRadius:[4,4,0,0]}},{name:'Real',type:'bar',data:M.rev,itemStyle:{color:'#22d3ee',borderRadius:[4,4,0,0]},markLine:ML(M)}]});
+ const bc=CTN.map(c=>({c,...agg(sel(F,'c').filter(r=>r.c==c))})),bt=bc.reduce((s,x)=>s+x.rev,0)||1;
+ ch.B.setOption({tooltip:{...TT,trigger:'item',formatter:p=>{const x=bc[p.dataIndex];return`<b>${x.c}</b><br>Ingresos: <b>${$$(x.rev)}</b><br>Participación: ${(x.rev/bt*100).toFixed(1)}%<br>Utilidad: ${$$(x.profit)} (margen ${x.margin.toFixed(1)}%)`+HINT}},grid:{left:54,right:10,top:24,bottom:30},xAxis:{type:'category',data:CTN,...AX},yAxis:YA,series:[{type:'bar',barWidth:'55%',data:bc.map(x=>({value:x.rev,itemStyle:{color:GF('#22d3ee','#2563eb'),opacity:!F.cat.length||F.cat.includes(x.c)?1:.3,borderRadius:[6,6,0,0],borderColor:'#fff',borderWidth:F.cat.includes(x.c)?2:0}})),label:{show:true,position:'top',color:'#dbe7ff',formatter:p=>$(p.value)}}]});
+ const ds=DPN.map(d=>({d,...agg(sel(F,'d').filter(r=>r.d==d))})),te=ds.reduce((s,x)=>s+x.exp,0);
+ ch.D.setOption({color:['#22d3ee','#3b82f6','#2dd4bf','#818cf8','#38bdf8'],tooltip:{...TT,trigger:'item',formatter:p=>{const x=ds[p.dataIndex];return`<b>${x.d}</b><br>Gastos: <b>${$$(x.exp)}</b> (${(x.exp/(te||1)*100).toFixed(1)}%)<br>Presupuesto: ${$$(x.bExp)} · desv. ${sg(pc(x.exp,x.bExp))}`+HINT}},legend:{bottom:0,textStyle:{color:'#a9bbe0',fontSize:12},itemWidth:10},title:{text:$(te),subtext:'Gastos',left:'center',top:'34%',textStyle:{color:'#fff',fontSize:20},subtextStyle:{color:'#a9bbe0',fontSize:12}},series:[{type:'pie',radius:['48%','72%'],center:['50%','44%'],label:{show:false},selectedMode:'multiple',selectedOffset:10,itemStyle:{borderColor:'#0a1330',borderWidth:2},data:ds.map(x=>({name:x.d,value:x.exp,selected:F.dept.includes(x.d),itemStyle:{opacity:!F.dept.length||F.dept.includes(x.d)?1:.3}}))}]});
+ const hs=DPN.map(d=>({d,...agg(sel(F,'d').filter(r=>r.d==d))})).sort((a,b)=>a.margin-b.margin);
+ ch.H.setOption({tooltip:{...TT,trigger:'item',formatter:p=>{const x=hs[p.dataIndex];return`<b>${x.d}</b><br>Margen: <b>${x.margin.toFixed(1)}%</b><br>Utilidad: ${$$(x.profit)}<br>Ingresos: ${$$(x.rev)}`+HINT}},grid:{left:92,right:44,top:10,bottom:24},xAxis:{type:'value',...AX,axisLabel:{color:'#a9bbe0',fontSize:12,formatter:'{value}%'}},yAxis:{type:'category',data:hs.map(x=>x.d),...AX},series:[{type:'bar',barWidth:'55%',data:hs.map(x=>({value:+x.margin.toFixed(1),itemStyle:{color:x.margin<15?'#f87171':'#2dd4bf',opacity:!F.dept.length||F.dept.includes(x.d)?1:.3,borderRadius:[0,6,6,0]}})),label:{show:true,position:'right',color:'#dbe7ff',formatter:'{c}%'}}]});
+ const a=agg(sel(F)),at=a.bRev?a.rev/a.bRev*100:0;
+ ch.G.setOption({tooltip:{...TT,formatter:()=>`Real: <b>${$$(a.rev)}</b><br>Presupuesto: ${$$(a.bRev)}`},series:[{type:'gauge',min:0,max:120,splitNumber:6,startAngle:210,endAngle:-30,radius:'92%',center:['50%','60%'],axisLine:{lineStyle:{width:14,color:[[.75,'#f87171'],[.833,'#fbbf24'],[1,'#2dd4bf']]}},pointer:{width:5,itemStyle:{color:'#22d3ee'}},axisTick:{show:false},splitLine:{length:10,lineStyle:{color:'#a9bbe0',fontSize:12}},axisLabel:{color:'#a9bbe0',fontSize:12,distance:20},detail:{formatter:'{value}%',color:'#fff',fontSize:26,offsetCenter:[0,'50%']},title:{color:'#a9bbe0',fontSize:12,offsetCenter:[0,'78%']},data:[{value:+at.toFixed(1),name:'Cumplimiento de ingresos'}]}]})}
+/* ===== 4. KPI, INSIGHTS, FILTROS ===== */
+const KD=[['rev','Ingresos totales','📈'],['exp','Gastos totales','💼'],['profit','Utilidad neta','💰'],['margin','Margen de rentabilidad','％'],['cash','Flujo de caja','💵'],['gr','Crecimiento de ingresos','🚀']];
+const fm=(it,v)=>v==null?'n/d':it.f(v),ic=()=>window.lucide&&lucide.createIcons();
+function kpis(){const S=idxOf(F),P=shift(S),c=agg(sel(F)),p=P&&agg(byIdx(P,F)),P2=P&&shift(P),p2=P2&&agg(byIdx(P2,F)),g=p&&p.rev?pc(c.rev,p.rev):null,pg=p2&&p2.rev?pc(p.rev,p2.rev):null,m=v=>$(v),pp=(a,b)=>a==null||b==null?null:a-b;
+ KI=[{k:'rev',v:c.rev,pv:p&&p.rev,f:m,d:p&&pc(c.rev,p.rev),u:'%',g:1},{k:'exp',v:c.exp,pv:p&&p.exp,f:m,d:p&&pc(c.exp,p.exp),u:'%',g:-1},{k:'profit',v:c.profit,pv:p&&p.profit,f:m,d:p&&pc(c.profit,p.profit),u:'%',g:1},{k:'margin',v:c.margin,pv:p&&p.margin,f:v=>v.toFixed(1)+'%',d:p&&pp(c.margin,p.margin),u:'pp',g:1},{k:'cash',v:c.cash,pv:p&&p.cash,f:m,d:p&&pc(c.cash,p.cash),u:'%',g:1},{k:'gr',v:g,pv:pg,f:sg,d:pp(g,pg),u:'pp',g:1}].map((x,i)=>({...x,t:KD[i][1],ic:KD[i][2]}));
+ $1('kg').innerHTML=KI.map(it=>{const d=it.d,cl=d==null?'':d*it.g>=0?'up':'dn';return`<button class="k${kSel==it.k?' sel':''}" data-k="${it.k}"><span class="ei">${it.ic}</span><span class="kt">${it.t}</span><b class="kv">${fm(it,it.v)}</b><span class="dl ${cl}">${d==null?'n/d':(d>=0?'▲ +':'▼ ')+d.toFixed(1)+it.u}</span><small>Período anterior: ${fm(it,it.pv)}</small></button>`}).join('');ic()}
+function insights(){const a=agg(sel(F)),M=CUR,P=shift(idxOf(F)),p=P&&agg(byIdx(P,F)),o=[],nd='Sin período anterior comparable.';
+ const G=(ks,fn,om,ov)=>ks.map(k=>({k,...agg(sel(F,om).filter(r=>fn(r)==k)),pv:P?agg(byIdx(P,{...F,...ov}).filter(r=>fn(r)==k)):null})),
+ cs=G(CTN,r=>r.c,'c',{cat:[]}),ds=G(DPN,r=>r.d,'d',{dept:[]}),gt=(x,k)=>x.pv&&x.pv[k]?pc(x[k],x.pv[k]):null,
+ top=(l,k)=>{l=l.filter(x=>gt(x,k)!=null);return l.length?l.reduce((b,x)=>gt(x,k)>gt(b,k)?x:b):null},
+ mom=r=>{let b=null;r.forEach((x,i)=>{const g=i?pc(x,r[i-1]):null;if(g!=null&&(!b||g>b.v))b={i,v:g}});return b},
+ add=(i,t,x,c,cl)=>o.push([i,t,x,c,cl||'']);
+ const c1=top(cs,'rev'),m1=mom(M.rev),d2=top(ds,'exp'),m2=mom(M.exp);
+ add('▲','Mayor crecimiento de ingresos',(c1?`Categoría ${c1.k}: ${sg(gt(c1,'rev'))} vs período anterior. `:'')+(m1?`Mayor alza mensual: ${M.lab[m1.i]} (${sg(m1.v)}).`:nd),(c1?`${c1.k}: ${$$(c1.pv.rev)} → ${$$(c1.rev)}. `:'')+(m1?`${M.lab[m1.i]}: ${$$(M.rev[m1.i-1])} → ${$$(M.rev[m1.i])}`:''));
+ add('▼','Mayor incremento de gastos',(d2?`Departamento ${d2.k}: ${sg(gt(d2,'exp'))} vs período anterior. `:'')+(m2?`Mayor alza mensual: ${M.lab[m2.i]} (${sg(m2.v)}).`:nd),(d2?`${d2.k}: ${$$(d2.pv.exp)} → ${$$(d2.exp)}. `:'')+(m2?`${M.lab[m2.i]}: ${$$(M.exp[m2.i-1])} → ${$$(M.exp[m2.i])}`:''));
+ if(M.margin.length){const i=M.margin.indexOf(Math.max(...M.margin));add('★','Mes con mayor rentabilidad',`${M.lab[i]}: margen de ${M.margin[i].toFixed(1)}% y utilidad de ${$$(M.profit[i])}.`,`${$$(M.profit[i])} ÷ ${$$(M.rev[i])} = ${M.margin[i].toFixed(1)}%`)}
+ const cr=[...cs].sort((x,y)=>y.rev-x.rev),tr=cs.reduce((t,x)=>t+x.rev,0)||1,tx=cs.reduce((t,x)=>t+x.exp,0)||1,sh=(v,t)=>(v/t*100).toFixed(1)+'%';
+ add('◔','Categorías con mayor participación',cr.slice(0,2).map(x=>`${x.k}: ${sh(x.rev,tr)} de ingresos y ${sh(x.exp,tx)} de gastos`).join('; ')+'.',`${cr[0].k}: ${$$(cr[0].rev)} de ${$$(tr)} en ingresos`);
+ const dd=[...ds].sort((x,y)=>Math.abs(pc(y.exp,y.bExp)||0)-Math.abs(pc(x.exp,x.bExp)||0))[0];
+ add('⚖','Desviaciones presupuestarias',`Ingresos ${sg(pc(a.rev,a.bRev))} y gastos ${sg(pc(a.exp,a.bExp))} vs presupuesto. Mayor desviación de gasto: ${dd.k} (${sg(pc(dd.exp,dd.bExp))}).`,`Ingresos ${$$(a.rev)} vs ${$$(a.bRev)}; gastos ${$$(a.exp)} vs ${$$(a.bExp)}`);
+ if(p){const l=[['Ingresos',pc(a.rev,p.rev)],['Gastos',pc(a.exp,p.exp)],['Utilidad',pc(a.profit,p.profit)],['Flujo de caja',pc(a.cash,p.cash)]].filter(x=>x[1]!=null&&Math.abs(x[1])>=5).map(x=>`${x[0]} ${sg(x[1])}`),mp=a.margin-p.margin;if(Math.abs(mp)>=1)l.push(`Margen ${mp>=0?'+':''}${mp.toFixed(1)} pp`);
+  add('Δ','Cambios relevantes vs período anterior',l.length?l.join(', ')+'.':'Ningún indicador varía ≥5% (margen ≥1 pp).',`Utilidad ${$$(p.profit)} → ${$$(a.profit)}; margen ${p.margin.toFixed(1)}% → ${a.margin.toFixed(1)}%`)}
+ else add('Δ','Cambios relevantes vs período anterior',nd,'Seleccione un año, trimestre o mes con historial previo');
+ const al=ds.filter(x=>x.margin<15).map(x=>`Margen de ${x.k} bajo 15% (${x.margin.toFixed(1)}%).`);if(a.exp>a.bExp*1.03)al.push(`Gasto total supera el presupuesto en más de 3% (${sg(pc(a.exp,a.bExp))}).`);if(a.rev<a.bRev*.97)al.push(`Ingresos más de 3% bajo presupuesto (${sg(pc(a.rev,a.bRev))}).`);const nc=M.cash.filter(v=>v<0).length;if(nc)al.push(`${nc} mes(es) con flujo neto negativo.`);
+ add('⚠','Alertas financieras',al.length?al.join(' '):'Sin alertas con los umbrales definidos.','Umbrales: margen por depto <15%, desviación >3%, caja neta <0',al.length?' al':'');
+ add('◆','Observación ejecutiva',`Utilidad neta ${$$(a.profit)} (margen ${a.margin.toFixed(1)}%) y flujo neto ${$$(a.cash)} con los filtros actuales. Los datos no permiten atribuir causas.`,`${sel(F).length} registros agregados`);
+ $1('cI').innerHTML=o.map(x=>`<div class="in${x[4]}"><span class="ei">${x[0]}</span><div><h4>${x[1]}</h4><p>${x[2]}</p><small>Cálculo: ${x[3]}</small></div></div>`).join('')}
+const LBL={year:v=>'Año '+v,month:v=>'Mes '+MN[v-1],q:v=>'T'+v,dept:v=>v,cat:v=>v};
+const on=k=>Array.isArray(F[k])?F[k].length>0:!!F[k];
+function chips(){const a=Object.keys(F).filter(on),pre={dept:'Depto: ',cat:'Cat.: '};
+ $1('chips').innerHTML=a.length?'<span>Filtros activos:</span>'+a.flatMap(k=>Array.isArray(F[k])?F[k].map(v=>[k,v,v]):[[k,'',LBL[k](F[k])]]).map(([k,v,l])=>`<button class="chip" data-x="${k}" data-v="${v}" title="Quitar este filtro">${pre[k]||''}${l} ✕</button>`).join('')+'<button class="chip" id="cx">↩ Vista general</button>':'<span>Vista general · sin filtros activos</span>';
+ document.querySelectorAll('[data-f]').forEach(s=>{const v=F[s.dataset.f];s.value=Array.isArray(v)?(v.length==1?v[0]:''):v});
+ document.querySelectorAll('[data-c]').forEach(b=>b.classList.toggle('on',b.dataset.c=='time'?!!(F.month||F.q):on(b.dataset.c)));
+ const y={year:F.year},T=a=>`ingresos ${$(a.rev)} · gastos ${$(a.exp)} · utilidad ${$(a.profit)} · margen ${a.margin.toFixed(1)}%`,o=[];
+ if(F.month||F.q)o.push(`<b>${F.month?MN[F.month-1]:'T'+F.q}</b>: ${T(agg(sel({...y,month:F.month,q:F.q,dept:[],cat:[]})))}`);
+ if(F.dept.length)o.push(`<b>${F.dept.join(' + ')}</b>: ${T(agg(sel({...y,dept:F.dept,cat:[]})))}`);if(F.cat.length)o.push(`<b>${F.cat.join(' + ')}</b>: ${T(agg(sel({...y,dept:[],cat:F.cat})))}`);$1('dt').innerHTML=o.join('<br>')}
+function update(){CUR=series(F);if(Math.abs(CUR.rev.reduce((s,v)=>s+v,0)-agg(sel(F,'t')).rev)>1)console.warn('Totales inconsistentes');draw(CUR);kpis();insights();chips();ic();if($1('md').classList.contains('on'))drawM()}
+const go=fn=>{document.body.classList.remove('ld');void document.body.offsetWidth;document.body.classList.add('ld');fn();setTimeout(()=>document.body.classList.remove('ld'),700)};
+const tog=(k,v)=>go(()=>{const a=F[k];F[k]=a.includes(v)?a.filter(z=>z!=v):[...a,v];update()});
+function pickMonth(i){const y=String(2024+(i/12|0)),m=String(i%12+1);go(()=>{if(F.year==y&&F.month==m)F.month='';else{F.year=y;F.month=m;F.q=''}update()})}
+/* ===== 5. MODAL KPI ===== */
+function drawM(){const it=KI.find(x=>x.k==kSel),a=CUR[kSel].filter(v=>v!=null),pct=kSel=='margin'||kSel=='gr',f=v=>pct?v.toFixed(1)+'%':$$(v);if(!it)return;
+ $1('mt').textContent=it.t;const d=it.d;$1('ms').innerHTML=`<span>Valor: <b>${fm(it,it.v)}</b></span><span>Anterior: <b>${fm(it,it.pv)}</b></span><span>Variación: <b>${d==null?'n/d':(d>=0?'+':'')+d.toFixed(1)+it.u}</b></span><span>Máx: <b>${a.length?f(Math.max(...a)):'n/d'}</b></span><span>Mín: <b>${a.length?f(Math.min(...a)):'n/d'}</b></span><span>Prom: <b>${a.length?f(a.reduce((s,v)=>s+v,0)/a.length):'n/d'}</b></span>`;
+ ch.M.setOption({tooltip:{...TT,trigger:'axis',formatter:p=>`<b>${p[0].axisValue}</b><br>${it.t}: <b>${p[0].value==null?'n/d':f(p[0].value)}</b>`},grid:{left:56,right:16,top:20,bottom:40},xAxis:{type:'category',data:CUR.lab,...AX},yAxis:pct?{type:'value',...AX,axisLabel:{color:'#a9bbe0',fontSize:12,formatter:'{value}%'}}:YA,dataZoom:[{type:'inside'}],series:[{type:'line',smooth:.3,data:CUR[kSel],symbolSize:8,lineStyle:{color:'#22d3ee',width:3},itemStyle:{color:'#22d3ee'},areaStyle:{color:GF('#22d3ee66','#22d3ee05')}}]},true)}
+function openK(k){kSel=k;$1('md').classList.add('on');if(!ch.M)ch.M=echarts.init($1('mc'));ch.M.resize();drawM();kpis()}
+const closeK=()=>{$1('md').classList.remove('on');kSel='';kpis()};
+/* ===== 6. ESTRUCTURA, VISTAS Y EVENTOS ===== */
+const VT={res:'Resumen ejecutivo',ing:'Ingresos y ventas',gas:'Gastos y costos',ren:'Rentabilidad',pre:'Presupuestos',flu:'Flujo de caja'},NI={res:'▦',ing:'🛒',gas:'🧾',ren:'📈',pre:'🎯',flu:'💵'};
+const VW={res:{L:8,G:4,B:4,D:4,H:4,A:6,C:6,I:12},ing:{L:8,B:4,C:12},gas:{D:5,L:7,I:12},ren:{H:6,L:6,I:12},pre:{G:4,C:8,I:12},flu:{A:12,L:12}};
+const CL={L:'time',A:'time',C:'time',B:'cat',D:'dept',H:'dept'},P=[['L','Evolución mensual · ingresos, gastos y utilidad',1],['B','Ingresos por categoría'],['D','Distribución de gastos (depto.) · toca para multi-selección'],['A','Evolución del flujo de caja',1],['H','Rentabilidad por departamento',0],['G','Cumplimiento del presupuesto'],['C','Presupuesto vs ejecución real',1],['I','INSIGHTS & FINANCIAL ANALYSIS']];
+$1('nv').innerHTML=Object.keys(VT).map(k=>`<button class="nb" data-v="${k}"><span class="ei">${NI[k]}</span>${VT[k]}</button>`).join('');
+$1('grid').innerHTML=P.map(([k,t,z])=>`<div class="p" id="p${k}"><div class="ph"><h3>${t}</h3><div class="zb">${CL[k]?`<button class="cx" data-c="${CL[k]}">✕ Limpiar</button>`:''}${z?`<button data-z="${k}" data-d="1" title="Acercar">＋</button><button data-z="${k}" data-d="-1" title="Alejar">－</button><button data-z="${k}" data-d="0" title="Vista completa">↺</button>`:''}</div></div>${k=='I'?'<div class="ins" id="cI"></div>':`<div class="ch" id="c${k}"></div>`}</div>`).join('');
+const OPT={year:[['','Todos'],['2024','2024'],['2025','2025']],month:[['','Todos'],...MN.map((n,i)=>[String(i+1),n])],q:[['','Todos'],...[1,2,3,4].map(n=>[String(n),'T'+n])],dept:[['','Todos'],...DPN.map(d=>[d,d])],cat:[['','Todas'],...CTN.map(c=>[c,c])]},FL={year:'Año',month:'Mes',q:'Trimestre',dept:'Departamento',cat:'Categoría'};
+$1('fl').innerHTML=Object.keys(OPT).map(k=>`<label class="fx">${FL[k]}<select data-f="${k}">${OPT[k].map(o=>`<option value="${o[0]}">${o[1]}</option>`).join('')}</select></label>`).join('');
+const PER={'Todo':{year:'',month:'',q:''},'2025':{year:'2025',month:'',q:''},'Último trimestre':{year:'2025',month:'',q:'4'},'Último mes':{year:'2025',month:'12',q:''}};
+$1('pr').innerHTML=Object.keys(PER).map(k=>`<button class="bt" data-p="${k}">${k}</button>`).join('');
+const resizeAll=()=>Object.values(ch).forEach(c=>c.resize());
+function setView(v){view=v;document.querySelectorAll('.nb').forEach(b=>b.classList.toggle('on',b.dataset.v==v));$1('vt').textContent=VT[v];P.forEach(([k])=>{const e=$1('p'+k),n=VW[v][k];e.style.display=n?'':'none';if(n){e.style.gridColumn='span '+n;e.style.animation='none';void e.offsetWidth;e.style.animation=''}});setTimeout(resizeAll,60)}
+function zoom(c,d){if(!d)return c.dispatchAction({type:'dataZoom',start:0,end:100});const z=c.getOption().dataZoom[0];let sp=Math.min(100,Math.max(8,(z.end-z.start)*(d>0?.6:1.6))),mid=(z.start+z.end)/2,s=Math.max(0,mid-sp/2),e=Math.min(100,s+sp);s=Math.max(0,e-sp);c.dispatchAction({type:'dataZoom',start:s,end:e})}
+const toast=t=>{const e=$1('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2600)};
+async function csv(){const H='fecha,año,mes,trimestre,departamento,categoria,ingresos,costos,gastos_operativos,gastos_totales,utilidad,presupuesto_ingresos,presupuesto_gastos,entrada_efectivo,salida_efectivo,flujo_neto',
+ t=[H,...sel(F).map(r=>[`${r.y}-${String(r.m).padStart(2,'0')}-01`,r.y,r.m,'T'+r.q,r.d,r.c,r.rev,r.cost,r.opex,r.cost+r.opex,r.rev-r.cost-r.opex,r.bRev,r.bExp,r.cin,r.cout,r.cin-r.cout].join(','))].join('\n');
+ try{const b=new Blob(['\ufeff'+t],{type:'text/csv;charset=utf-8'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='financial-intelligence.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500)}catch(e){toast('No se pudo exportar el CSV')}}
+document.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;
+ if(t.dataset.v)setView(t.dataset.v);else if(t.dataset.k)openK(t.dataset.k);else if(t.dataset.x)go(()=>{const k=t.dataset.x,v=t.dataset.v;F[k]=Array.isArray(F[k])?(v?F[k].filter(z=>z!=v):[]):'';update()});else if(t.dataset.c)go(()=>{const c=t.dataset.c;if(c=='time')F.month=F.q='';else F[c]=[];update()});else if(t.id=='cx'||t.id=='br')go(()=>{F={...F0};update()});
+ else if(t.dataset.p)go(()=>{Object.assign(F,PER[t.dataset.p]);update()});else if(t.dataset.z)zoom(ch[t.dataset.z],+t.dataset.d);else if(t.id=='bx')csv();
+ else if(t.id=='bd')go(()=>{F={...F0};['L','A','C'].forEach(k=>zoom(ch[k],0));closeK();setView('res');update()});else if(t.id=='mx')closeK();
+ else if(t.id=='bf')(async()=>{try{document.fullscreenElement?await document.exitFullscreen():await document.documentElement.requestFullscreen()}catch(x){document.body.classList.toggle('foc')}})()});
+$1('md').addEventListener('click',e=>{if(e.target.id=='md')closeK()});document.addEventListener('keydown',e=>{if(e.key=='Escape')closeK()});
+document.addEventListener('change',e=>{const k=e.target.dataset.f;if(!k)return;go(()=>{const v=e.target.value;F[k]=Array.isArray(F[k])?(v?[v]:[]):v;if(k=='month'&&F.month)F.q='';if(k=='q'&&F.q)F.month='';update()})});
+addEventListener('resize',resizeAll);document.addEventListener('fullscreenchange',()=>setTimeout(resizeAll,120));
+setView('res');['L','B','D','A','H','G','C'].forEach(k=>ch[k]=echarts.init($1('c'+k)));
+['L','A','C'].forEach(k=>ch[k].getZr().on('click',e=>{const p=[e.offsetX,e.offsetY];if(!ch[k].containPixel('grid',p))return;const i=CUR.idx[Math.round(ch[k].convertFromPixel({gridIndex:0},p)[0])];if(i!=null)tap('m'+i,()=>pickMonth(i))}));
+ch.B.on('click',p=>tap('B'+p.dataIndex,()=>tog('cat',CTN[p.dataIndex])));ch.D.on('click',p=>tap('D'+p.dataIndex,()=>tog('dept',DPN[p.dataIndex])));ch.H.on('click',p=>tap('H'+p.name,()=>tog('dept',p.name)));
+update();$1('boot').remove();
+};
+(function(){const u=["https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.1/echarts.min.js","https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js","https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"];let n=0;
+function t(){if(window.echarts)return window.__run();if(n>=u.length)return bootMsg("No se pudo descargar ECharts desde ninguna fuente. Revisa tu conexión o bloqueadores e intenta de nuevo.");
+const e=document.createElement("script");e.src=u[n++];e.onload=t;e.onerror=t;document.head.appendChild(e)}t()})();
+</script></body></html>
